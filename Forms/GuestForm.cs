@@ -64,7 +64,7 @@ namespace EverpineHotelManagement.Forms
         {
             if (dgvGuests.SelectedRows.Count > 0)
             {
-                var confirm = MessageBox.Show("Удалить выбранного гостя?", "Удаление", MessageBoxButtons.YesNo);
+                var confirm = MessageBox.Show("Удалить выбранного гостя?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (confirm == DialogResult.Yes)
                 {
                     int id = Convert.ToInt32(dgvGuests.SelectedRows[0].Cells["Id"].Value);
@@ -72,6 +72,10 @@ namespace EverpineHotelManagement.Forms
                     repo.DeleteGuest(id);
                     LoadGuests();
                 }
+            }
+            else
+            {
+                MessageBox.Show("Пожалуйста, выберите строку для удаления.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
