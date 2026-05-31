@@ -134,7 +134,7 @@
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(776, 39);
             this.lblName.TabIndex = 28;
-            this.lblName.Text = "Бронирования";
+            this.lblName.Text = "Бронирование";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BookingForm

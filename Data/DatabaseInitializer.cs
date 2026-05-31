@@ -91,7 +91,6 @@ namespace EverpineHotelManagement.Data
                     long usersCount = (long)checkCmd.ExecuteScalar();
                     if (usersCount == 0)
                     {
-                        // Массив данных для создания пользователей
                         var usersToCreate = new[]
                         {
         new { Login = "admin", Pass = "admin123", Name = "Главный Администратор", RoleId = 1 },
