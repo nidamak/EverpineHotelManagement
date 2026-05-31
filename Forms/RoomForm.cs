@@ -44,10 +44,18 @@ namespace EverpineHotelManagement.Forms
         {
             if (dgvData.SelectedRows.Count > 0)
             {
-                int id = Convert.ToInt32(dgvData.SelectedRows[0].Cells["Id"].Value);
-                var repo = new Data.RoomRepository();
-                repo.DeleteRoom(id);
-                LoadRooms(); 
+                var confirm = MessageBox.Show("Удалить выбранный номер?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (confirm == DialogResult.Yes)
+                {
+                    int id = Convert.ToInt32(dgvData.SelectedRows[0].Cells["Id"].Value);
+                    var repo = new Data.RoomRepository();
+                    repo.DeleteRoom(id);
+                    LoadRooms();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Пожалуйста, выберите строку для удаления.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
